@@ -6,7 +6,7 @@ Order by 3,4
 --From PortfolioProject.dbo.COVID_VACC
 --order by 3,4
 
--- Select Data that we are going to be using
+-- Select Data that I am going to be using
 
 Select Location, date, total_cases, new_cases, total_deaths, population 
 From PortfolioProject.dbo.COVID_DEATHS
@@ -23,7 +23,7 @@ and continent is not null
 order by 1,2
 
 -- Looking at total cases vs populaiton 
--- Shows what percentage of population got COVID
+-- This shows what percentage of population got COVID
 
 Select Location, date, population, total_cases, (total_cases/population)*100 as PopCovid
 From PortfolioProject.dbo.COVID_DEATHS
@@ -31,7 +31,7 @@ From PortfolioProject.dbo.COVID_DEATHS
 Where continent is not null
 order by 1,2
 
--- looking at countries with highest infection rate compared to population
+-- looking at countries with highest infection rate compared to its population
 
 Select Location, population, MAX(total_cases) as HighestInfectionCount, MAX((total_cases/population))*100 as PercentPopInfected
 From PortfolioProject.dbo.COVID_DEATHS
@@ -74,7 +74,7 @@ order by 1, 2
 -- Joining tables deaths and vaccinations, also creating a new shortened name dea & vac. Joined by date & location.
 -- Tables designed to look at total population vs vaccination (total people in world vaccinated per day). 
 
--- USE CTE
+-- using CTE
 
 With PopVsVac (continent, location, date, population, new_vaccinations, RollingCountVaccinated)
 as 
